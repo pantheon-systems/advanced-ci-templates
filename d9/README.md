@@ -1,6 +1,6 @@
-# Drupal 9
+# Decoupled Drupal 9
 
-This folder contains different files and configurations for Drupal 9 sites.
+This folder contains different files and configurations for Decoupled Drupal 9 sites.
 
 For any CI provider, you should copy the .ci folder to your project root and the corresponding folder under the providers folder also to your project root. Then, follow the instructions in the right section below.
 
