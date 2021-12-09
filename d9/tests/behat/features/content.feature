@@ -47,17 +47,3 @@ Feature: Content
     When I go to "admin/structure/taxonomy/manage/tags/overview"
     Then I should see "Tag one"
     And I should see "Tag two"
-
-  @api
-  Scenario: Create nodes with specific authorship
-    Given users:
-    | name     | mail            | status |
-    | Joe User | joe@example.com | 1      |
-    And "article" content:
-    | title          | author   | promote |
-    | Article by Joe | Joe User | 1       |
-    When I am logged in as a user with the "administrator" role
-    And I am on the homepage
-    Then I should see the link "Article by Joe"
-    When I follow "Article by Joe"
-    Then I should see the text "Article by Joe"
