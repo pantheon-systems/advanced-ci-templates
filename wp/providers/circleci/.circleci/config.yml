@@ -20,9 +20,9 @@ defaults: &defaults
     # ADMIN_EMAIL:  The email address to give the admin when installing.
     #=========================================================================
     TZ: "/usr/share/zoneinfo/America/Los_Angeles"
-  
+
     # The variables below usually do not need to be modified.
-  
+
     #======================================================================================================================================
     # Circle CI 2.0 does not yet expand environment variables so they have to be manually EXPORTed
     # Once environment variables can be expanded the variables below can be uncommented and the EXPORTs in set-up-globals.sh can be removed
@@ -30,7 +30,7 @@ defaults: &defaults
     # See: https://discuss.circleci.com/t/environment-variable-expansion-in-working-directory/11322
     # See: https://discuss.circleci.com/t/circle-2-0-global-environment-variables/8681
     #======================================================================================================================================
-  
+
     NOTIFY: 'scripts/github/add-commit-comment {project} {sha} "Created multidev environment [{site}#{env}]({dashboard-url})." {site-url}'
     ADMIN_USERNAME: admin
     TERM: dumb
@@ -139,7 +139,7 @@ jobs:
       # Rsync the build artifact pieces web directory
       - run:
           name: sync build artifact
-          command: rsync -rz /tmp/web /tmp/vendor .
+          command: rsync -lrz /tmp/web /tmp/vendor .
 
       # Deploy to Pantheon
       - run:
