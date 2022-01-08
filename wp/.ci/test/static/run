@@ -18,7 +18,7 @@ composer -n unit-test
 # Delete and reset the web directory
 # This is necessary so that third-party
 # dependencies are not tested
-git clean -fdX web
+git clean -fdX web --exclude=web/wp-content/mu-plugins
 
 # Lint php code for syntax errors
 composer -n lint
