@@ -28,7 +28,7 @@ env:
 jobs:
   scheduled_update_check:
     container:
-      image: quay.io/pantheon-public/build-tools-ci:6.x
+      image: lcatlett/build-tools-ci:8.x-php7.4
       options: --user root
     runs-on: ubuntu-latest
     steps:
@@ -46,7 +46,7 @@ jobs:
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ github.run_number }}
 
       # Set TERMINUS_ENV and related environment variables.
-      # https://github.com/pantheon-systems/docker-build-tools-ci/blob/6.x/scripts/set-environment
+      # https://github.com/lcatlett/docker-build-tools-ci/blob/8.x/scripts/set-environment
       - name: setup-environment-vars
         run: |
           /build-tools-ci/scripts/set-environment

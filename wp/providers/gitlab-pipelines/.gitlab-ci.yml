@@ -1,5 +1,5 @@
 # Build tools Dockerfile
-image: quay.io/pantheon-public/build-tools-ci:6.x
+image: lcatlett/build-tools-ci:8.x-php7.4
 
 # Default Variables
 variables:
@@ -40,7 +40,7 @@ configure:env-vars:
   - eval $(ssh-agent -s) && ssh-add <(echo "$SSH_PRIVATE_KEY")
   script:
   # Set TERMINUS_ENV and related environment variables.
-  # https://github.com/pantheon-systems/docker-build-tools-ci/blob/6.x/scripts/set-environment
+  # https://github.com/lcatlett/docker-build-tools-ci/blob/8.x/scripts/set-environment
   - export PATH="$PATH:$CI_PROJECT_DIR/.ci/scripts"
   - export BASH_ENV="$HOME/.envvarsrc"
   - /build-tools-ci/scripts/set-environment
@@ -98,7 +98,7 @@ deploy:pantheon:
 
 test:visual-regression:
   stage: visual-test
-  image: 
+  image:
     name: backstopjs/backstopjs:4.1.9
     entrypoint: [""]
   variables:
