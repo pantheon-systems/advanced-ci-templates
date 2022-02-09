@@ -1,4 +1,4 @@
-# Terminus Build Tools - Enhanced and Decoupled templates for CI Integrations.
+# Terminus Build Tools - templates for best-practice CI workflows.
 
 CI Integrations for Terminus Build Tools template repos.
 
