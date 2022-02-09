@@ -1,8 +1,21 @@
-# Decoupled Drupal 9
+# Drupal 9
 
-This folder contains different files and configurations for Decoupled Drupal 9 sites.
+This folder contains recommended starter configuration for a Drupal 9 project on Pantheon hosting utilizing an external Git provider, a Continuous Integration service, and a [Pull Request workflow](https://pantheon.io/docs/guides/build-tools/pr-workflow). The tooling and templates provided enable developers to quickly generate a new project implementing common best practices and automation to build, test, deploy, and update a Drupal 9 project.
 
-For any CI provider, you should copy the .ci folder to your project root and the corresponding folder under the providers folder also to your project root. Then, follow the instructions in the right section below.
+Note that this configuration *is not compatible* with Pantheon's [Integrated Composer](https://pantheon.io/docs/integrated-composer) workflow for managing package and dependency updates in the Pantheon site dashboard.
+
+## Create a new project with this configuration
+
+If you are using the [Terminus Build Tools Plugin](https://pantheon.io/docs/guides/build-tools) to scaffold your Pantheon project via the `terminus build:project:create` command, you can specify the `--ci-template` option to use the recommendations provided in this repo on your project. For example:
+
+```
+terminus build:project:create --ci-template="git@github.com:lcatlett/tbt-ci-templates.git" --git=github --team='My Organization Name' d9 my-site
+
+```
+
+See the [Build Tools documentation](https://github.com/pantheon-systems/terminus-build-tools-plugin/blob/3.x/README.md#command-options) for a more detailed overview of the options available for customization in `build:project:create` and other terminus commands provided by the plugin.
+
+To use these templates on an existing project without the use of Terminus Build Tools, you should copy the `.ci` folder to your project root and the corresponding folder under the providers folder also to your project root. Then, follow the instructions in the relevant section below.
 
 ## CircleCI
 
