@@ -22,7 +22,6 @@ env:
   GITHUB_OWNER: ${{ github.repository_owner }}
   CI_PROJECT_NAME: ${{ github.repository }}
 
-
 jobs:
   configure_env_vars:
     container:
@@ -172,6 +171,9 @@ jobs:
       # https://github.com/lcatlett/docker-build-tools-ci/blob/8.x/scripts/set-environment
       - name: setup-environment-vars
         run: /build-tools-ci/scripts/set-environment
+
+      - name: run PHP build step
+        run: ./.ci/build/php
 
       # Deploy to Pantheon
       - name: deploy to Pantheon
