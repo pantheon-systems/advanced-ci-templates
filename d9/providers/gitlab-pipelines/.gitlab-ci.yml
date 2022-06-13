@@ -71,10 +71,13 @@ deploy:pantheon:
     url: https://$TERMINUS_ENV-$TERMINUS_SITE.pantheonsite.io/
   script:
     - echo "Target site.env is $TERMINUS_SITE.$TERMINUS_ENV"
+    - ./.ci/build/php
     - ./.ci/deploy/pantheon/dev-multidev
   only:
     - merge_requests
     - master
+  dependencies:
+    - configure:env-vars
 
 test:visual-regression:
   stage: visual-test
